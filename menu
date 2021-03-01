@@ -1,0 +1,40 @@
+import os
+
+planta = ('Banana verde', 'Bertalha', 'Cambuquira', 'Capeba')
+
+def mensagem_obrigado():
+    print(f'Obrigada por utilizar nosso aplicativo!!') 
+
+def exibe_planta():
+    for idtipo, tipo in enumerate (planta):
+            print(f'[{idtipo+1}] - {tipo}')
+
+def limpa_tela():
+    os.system('clear')
+
+limpa_tela()
+print ('Seja Bem Vindo ao Catalogo de Pancs!')
+print()
+opcao = True
+while opcao:
+        
+    print('Temos as seguintes plantas no menu: ')
+    print()
+    exibe_planta()
+    print('[999] - para sair')
+    print()
+    opcao = int(input('Escolha uma opção: '))
+    if opcao == 999:
+        print()
+        print('Obrigado!')
+        opcao = False
+        
+    elif opcao > len(planta)+1:
+        print ('Opção incorreta, por favor digite uma opção válida')
+        exit (1)
+    else:
+        print (f'Sua escolha foi: {planta[opcao]}')
+        novo_item = int(input(f'Você deseja realizar outra consulta?[1 para sim e 0 para não]:'))
+        if novo_item == 0:
+            mensagem_obrigado()
+            opcao = False
